@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc overview
  * @name exerciseApp
@@ -13,23 +12,27 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+  .config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('main', {
+        url: '/index',
+        templateUrl: 'views/main.html'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .state('registration', {
+        url: '/registration',
+        templateUrl: 'views/registration.html'
       })
-      .otherwise({
-        redirectTo: '/'
+      .state('404', {
+        url: '/404',
+        templateUrl: 'views/404.html'
       });
+      
+    $urlRouterProvider
+      .when('', '/index')
+      .when('/', '/index')
+      .otherwise('404', '/404');
   });
