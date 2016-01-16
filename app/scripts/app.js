@@ -22,15 +22,34 @@ angular
         url: '/index',
         templateUrl: 'views/main.html'
       })
+
       .state('registration', {
         url: '/registration',
-        templateUrl: 'views/registration.html'
+        templateUrl: 'views/registration.html',
+        controller: 'RegistrationCtrl'
       })
+        .state('registration.personal', {
+          url: '/personal',
+          templateUrl: 'views/registration-partials/personal.html'
+        })
+        .state('registration.car', {
+          url: '/car',
+          templateUrl: 'views/registration-partials/car.html'
+        })
+        .state('registration.payment', {
+          url: '/payment',
+          templateUrl: 'views/registration-partials/payment.html'
+        })
+        .state('registration.thanks', {
+          url: '/thanks',
+          templateUrl: 'views/registration-partials/thanks.html'
+        })
+
       .state('404', {
         url: '/404',
         templateUrl: 'views/404.html'
       });
-      
+
     $urlRouterProvider
       .when('', '/index')
       .when('/', '/index')

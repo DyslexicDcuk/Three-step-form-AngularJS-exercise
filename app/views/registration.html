@@ -1,1 +1,10 @@
-<h1>FORM Container</h1>
+<div id="status-buttons" class="text-center">
+  <a ui-sref-active="active" ui-sref=".personal"><span>1</span> Personal information</a>
+  <a ui-sref-active="active" ui-sref=".car"><span>2</span> Car information</a>
+  <a ui-sref-active="active" ui-sref=".payment"><span>3</span> Payment information</a>
+  <a ui-sref-active="active" ui-sref=".thanks"><span>3</span> Thanks</a>
+</div>
+
+<form id="signup-form" ng-submit="processForm()">
+  <div id="form-views" ui-view></div>
+</form>
