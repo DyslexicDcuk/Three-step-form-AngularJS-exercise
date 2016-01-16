@@ -2,17 +2,36 @@
 
 <div>
   <label>First name</label>
-  <input type="text">
+  <input type="text" name="userFirstName" 
+      ng-model="formData.firstName" 
+      ng-model-options="{ updateOn: 'blur' }"  
+      required>
+  <div ng-show="form.$submitted || form.userFirstName.$touched">
+    <div ng-show="form.userFirstName.$error.required">Required.</div>
+  </div>
 </div>
 <div>
   <label>Last name</label>
-  <input type="text">
+  <input type="text" name="userLastName" 
+      ng-model="formData.lastName" 
+      ng-model-options="{ updateOn: 'blur' }" 
+      required>
+  <div ng-show="form.$submitted || form.userLastName.$touched">
+    <div ng-show="form.userLastName.$error.required">Required.</div>
+  </div>
 </div>
 <div>
   <label>E-mail</label>
-  <input type="e-mail">
+  <input type="email" name="userEmail" 
+      ng-model="formData.email" 
+      ng-model-options="{ updateOn: 'blur' }" 
+      required>
+  <div ng-show="form.$submitted || form.userEmail.$touched">
+    <span ng-show="form.userEmail.$error.required">Tell us your email.</span>
+    <span ng-show="form.userEmail.$error.email">This is not a valid email.</span>
+  </div>
 </div>
 
 <div>
-  <a ui-sref="registration.car">Next</a>
+  <button ng-click="nextStep(form.$valid, 'personal')">Next</a>
 </div>

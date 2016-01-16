@@ -2,11 +2,23 @@
 
 <div>
   <label>Credit card number</label>
-  <input type="text">
+  <input type="text" name="cardNumber" 
+      ng-model="formData.number" 
+      ng-model-options="{ updateOn: 'blur' }" 
+      required>
+  <div ng-show="form.$submitted || form.cardNumber.$touched">
+    <div ng-show="form.cardNumber.$error.required">Required.</div>
+  </div>
 </div>
 <div>
   <label>Expiration date</label>
-  <input type="text">
+  <input type="text" name="cardExpiration" 
+      ng-model="formData.expiration" 
+      ng-model-options="{ updateOn: 'blur' }" 
+      required>
+  <div ng-show="form.$submitted || form.cardExpiration.$touched">
+    <div ng-show="form.cardExpiration.$error.required">Required.</div>
+  </div>
 </div>
 
 <div>

@@ -1,10 +1,10 @@
-<div id="status-buttons" class="text-center">
-  <a ui-sref-active="active" ui-sref=".personal"><span>1</span> Personal information</a>
-  <a ui-sref-active="active" ui-sref=".car"><span>2</span> Car information</a>
-  <a ui-sref-active="active" ui-sref=".payment"><span>3</span> Payment information</a>
-  <a ui-sref-active="active" ui-sref=".thanks"><span>3</span> Thanks</a>
-</div>
+<ul>
+<li><a ui-sref-active="active" ui-sref=".personal">Personal information</a></li>
+<li><a ui-sref-active="active" ui-sref=".car">Car information</a></li>
+<li><a ui-sref-active="active" ui-sref=".payment">Payment information</a></li>
+<li><a ui-sref-active="active" ui-sref=".thanks">Thanks</a></li>
+</ul>
 
-<form id="signup-form" ng-submit="processForm()">
-  <div id="form-views" ui-view></div>
+<form name="form" novalidate>
+  <div ui-view></div>
 </form>
