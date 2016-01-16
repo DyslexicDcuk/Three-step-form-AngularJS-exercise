@@ -1,36 +1,29 @@
 <h1>Car information</h1>
 
-<div>
-  <label>Make</label>
-  <input type="text" name="carMake" 
-      ng-model="formData.make" 
-      ng-model-options="{ updateOn: 'blur' }"  
-      required>
-  <div ng-show="form.$submitted || form.carMake.$touched">
-    <div ng-show="form.carMake.$error.required">Required.</div>
+<section ng-form="carForm">
+  <div>
+    <label>Make</label>
+    <input type="text" name="carMake" ng-model="formData.make" ng-model-options="{ updateOn: 'blur' }" required>
+    <div ng-show="carForm.$submitted || carForm.carMake.$touched">
+      <div ng-show="carForm.carMake.$error.required">Required.</div>
+    </div>
   </div>
-</div>
-<div>
-  <label>Model</label>
-  <input type="text" name="carModel" 
-      ng-model="formData.model" 
-      ng-model-options="{ updateOn: 'blur' }"  
-      required>
-  <div ng-show="form.$submitted || form.carModel.$touched">
-    <div ng-show="form.carModel.$error.required">Required.</div>
+  <div>
+    <label>Model</label>
+    <input type="text" name="carModel" ng-model="formData.model" ng-model-options="{ updateOn: 'blur' }" required>
+    <div ng-show="carForm.$submitted || carForm.carModel.$touched">
+      <div ng-show="carForm.carModel.$error.required">Required.</div>
+    </div>
   </div>
-</div>
-<div>
-  <label>Year</label>
-  <input type="text" name="carYear" 
-      ng-model="formData.year" 
-      ng-model-options="{ updateOn: 'blur' }"  
-      required>
-  <div ng-show="form.$submitted || form.carYear.$touched">
-    <div ng-show="form.carYear.$error.required">Required.</div>
+  <div>
+    <label>Year</label>
+    <input type="text" name="carYear" ng-model="formData.year" ng-model-options="{ updateOn: 'blur' }" required>
+    <div ng-show="carForm.$submitted || carForm.carYear.$touched">
+      <div ng-show="carForm.carYear.$error.required">Required.</div>
+    </div>
   </div>
-</div>
 
-<div>
-  <button ng-click="nextStep(form.$valid, 'car')">Next</a>
-</div>
+  <div>
+    <button ng-click="carForm.$setSubmitted(); nextStep(carForm.$valid, 'car')">Next</button>
+  </div>
+</section>

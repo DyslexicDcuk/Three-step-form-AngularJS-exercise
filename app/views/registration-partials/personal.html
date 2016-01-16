@@ -1,37 +1,30 @@
 <h1>Personal information</h1>
 
-<div>
-  <label>First name</label>
-  <input type="text" name="userFirstName" 
-      ng-model="formData.firstName" 
-      ng-model-options="{ updateOn: 'blur' }"  
-      required>
-  <div ng-show="form.$submitted || form.userFirstName.$touched">
-    <div ng-show="form.userFirstName.$error.required">Required.</div>
+<section ng-form="personalForm">
+  <div>
+    <label>First name</label>
+    <input type="text" name="fistName" ng-model="formData.firstName" ng-model-options="{ updateOn: 'blur' }" required>
+    <div ng-show="personalForm.$submitted || personalForm.fistName.$touched">
+      <div ng-show="personalForm.fistName.$error.required">Required.</div>
+    </div>
   </div>
-</div>
-<div>
-  <label>Last name</label>
-  <input type="text" name="userLastName" 
-      ng-model="formData.lastName" 
-      ng-model-options="{ updateOn: 'blur' }" 
-      required>
-  <div ng-show="form.$submitted || form.userLastName.$touched">
-    <div ng-show="form.userLastName.$error.required">Required.</div>
+  <div>
+    <label>Last name</label>
+    <input type="text" name="userLastName" ng-model="formData.lastName" ng-model-options="{ updateOn: 'blur' }" required>
+    <div ng-show="personalForm.$submitted || personalForm.userLastName.$touched">
+      <div ng-show="personalForm.userLastName.$error.required">Required.</div>
+    </div>
   </div>
-</div>
-<div>
-  <label>E-mail</label>
-  <input type="email" name="userEmail" 
-      ng-model="formData.email" 
-      ng-model-options="{ updateOn: 'blur' }" 
-      required>
-  <div ng-show="form.$submitted || form.userEmail.$touched">
-    <span ng-show="form.userEmail.$error.required">Tell us your email.</span>
-    <span ng-show="form.userEmail.$error.email">This is not a valid email.</span>
+  <div>
+    <label>E-mail</label>
+    <input type="email" name="userEmail" ng-model="formData.email" ng-model-options="{ updateOn: 'blur' }" required>
+    <div ng-show="personalForm.$submitted || personalForm.userEmail.$touched">
+      <span ng-show="personalForm.userEmail.$error.required">Tell us your email.</span>
+      <span ng-show="personalForm.userEmail.$error.email">This is not a valid email.</span>
+    </div>
   </div>
-</div>
 
-<div>
-  <button ng-click="nextStep(form.$valid, 'personal')">Next</a>
-</div>
+  <div>
+    <button ng-click="personalForm.$setSubmitted(); nextStep(personalForm.$isValid, 'personal')">Next</button>
+  </div>
+</section>

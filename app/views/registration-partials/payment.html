@@ -1,13 +1,14 @@
 <h1>Payment</h1>
 
+<section ng-form="paymentForm">
 <div>
   <label>Credit card number</label>
   <input type="text" name="cardNumber" 
       ng-model="formData.number" 
       ng-model-options="{ updateOn: 'blur' }" 
       required>
-  <div ng-show="form.$submitted || form.cardNumber.$touched">
-    <div ng-show="form.cardNumber.$error.required">Required.</div>
+  <div ng-show="paymentForm.$submitted || paymentForm.cardNumber.$touched">
+    <div ng-show="paymentForm.cardNumber.$error.required">Required.</div>
   </div>
 </div>
 <div>
@@ -16,11 +17,12 @@
       ng-model="formData.expiration" 
       ng-model-options="{ updateOn: 'blur' }" 
       required>
-  <div ng-show="form.$submitted || form.cardExpiration.$touched">
-    <div ng-show="form.cardExpiration.$error.required">Required.</div>
+  <div ng-show="paymentForm.$submitted || paymentForm.cardExpiration.$touched">
+    <div ng-show="paymentForm.cardExpiration.$error.required">Required.</div>
   </div>
 </div>
 
-<div>
-  <button type="submit">Submit</button>
-</div>
+  <div>
+    <button ng-click="paymentForm.$setSubmitted(); nextStep(paymentForm.$valid, 'payment')">Submit</button>
+  </div>
+</section>
