@@ -24,3 +24,27 @@
     }
   }
 }
+
+@media(max-width:767px) {
+  .table {
+    padding: 2px;
+
+    th {
+      padding: 4px;
+
+      &:nth-child(-n+3) {
+        display: none;
+      }
+    }
+
+    tr {
+      td {
+        padding: 4px;
+
+        &:nth-child(-n+3) {
+          display: none;
+        }
+      }
+    }
+  }
+}

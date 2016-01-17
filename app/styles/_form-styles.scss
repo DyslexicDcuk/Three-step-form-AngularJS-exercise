@@ -148,3 +148,44 @@
     }
   }
 }
+
+@media(max-width:767px) {
+  .form-steps {
+    width: 100%;
+  li {
+      width: calc(100% / 3);
+
+      button {
+        width: 100%;
+
+        .text {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .registration-form {
+    width: 100%;
+
+    .input-group {
+      padding: 12px 6px 12px 6px;
+
+      &:first-child {
+        padding-top: 26px;
+      }
+    }
+
+    .next-step {
+      padding: 12px 6px 6px 6px;
+    }
+  }
+
+  .thanks {
+    width: 100%;
+    
+    .text {
+      padding: 30px 16px 30px 16px;
+    }
+  }
+}
