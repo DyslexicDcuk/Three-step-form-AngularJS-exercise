@@ -20,7 +20,8 @@ angular
     $stateProvider
       .state('main', {
         url: '/index',
-        templateUrl: 'views/main.html'
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
       })
 
       .state('registration', {

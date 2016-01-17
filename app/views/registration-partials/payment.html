@@ -4,7 +4,7 @@
 <div>
   <label>Credit card number</label>
   <input type="text" name="cardNumber" 
-      ng-model="formData.number" 
+      ng-model="formData.cardNumber" 
       ng-model-options="{ updateOn: 'blur' }" 
       required>
   <div ng-show="paymentForm.$submitted || paymentForm.cardNumber.$touched">
@@ -14,7 +14,7 @@
 <div>
   <label>Expiration date</label>
   <input type="text" name="cardExpiration" 
-      ng-model="formData.expiration" 
+      ng-model="formData.cardExpiration" 
       ng-model-options="{ updateOn: 'blur' }" 
       required>
   <div ng-show="paymentForm.$submitted || paymentForm.cardExpiration.$touched">

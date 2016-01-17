@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name exerciseApp.controller:MainCtrl
@@ -8,10 +7,8 @@
  * Controller of the exerciseApp
  */
 angular.module('exerciseApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope','Storage', function($scope, Storage) {
+  
+  	$scope.users = Storage.users.get();
+
+  }]);
