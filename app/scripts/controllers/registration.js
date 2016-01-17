@@ -8,23 +8,13 @@
  */
 angular.module('exerciseApp')
   .controller('RegistrationCtrl', ['$scope', '$state', 'Storage', function($scope, $state, Storage) {
-   
-    $scope.formData = {};
 
-    var bla = function() {
-      Storage.users.add({
-        'firstName':'Name',
-        'lastName':'Surname',
-        'email':'a@b.com',
-        'carMake':'Honda',
-        'carModel':'Civic',
-        'carYear':'2015',
-        'cardNumber':'291291299129129',
-        'cardExpiration':'10/17'
-      });
+    $scope.formData = Storage.formState.get();
+    $state.go($scope.formData.lastInvalidStep);
+
+    $scope.saveFormState = function(formName, isValid) {
+      Storage.formState.set($scope.formData, formName, isValid);
     };
-
-    bla();
 
     $scope.nextStep = function(isValid, location) {
       if (isValid) {
@@ -33,6 +23,10 @@ angular.module('exerciseApp')
         } else if (location === 'car') {
           $state.go('registration.payment');
         } else if (location === 'payment') {
+          delete $scope.formData.lastInvalidStep;
+          Storage.users.add($scope.formData);
+          Storage.formState.delete();
+          $scope.formData = {};
           $state.go('registration.thanks');
         }
       }

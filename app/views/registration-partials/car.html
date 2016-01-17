@@ -3,21 +3,38 @@
 <section ng-form="carForm">
   <div>
     <label>Make</label>
-    <input type="text" name="carMake" ng-model="formData.carMake" ng-model-options="{ updateOn: 'blur' }" required>
+    <input type="text" 
+          name="carMake"
+          ng-model="formData.carMake" 
+          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+          ng-change="saveFormState('car', carForm.$valid)"
+          required>
     <div ng-show="carForm.$submitted || carForm.carMake.$touched">
       <div ng-show="carForm.carMake.$error.required">Required.</div>
     </div>
   </div>
+
   <div>
     <label>Model</label>
-    <input type="text" name="carModel" ng-model="formData.carModel" ng-model-options="{ updateOn: 'blur' }" required>
+    <input type="text" 
+          name="carModel" 
+          ng-model="formData.carModel"
+          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+          ng-change="saveFormState('car', carForm.$valid)" 
+          required>
     <div ng-show="carForm.$submitted || carForm.carModel.$touched">
       <div ng-show="carForm.carModel.$error.required">Required.</div>
     </div>
   </div>
+
   <div>
     <label>Year</label>
-    <input type="text" name="carYear" ng-model="formData.carYear" ng-model-options="{ updateOn: 'blur' }" required>
+    <input type="text" 
+          name="carYear" 
+          ng-model="formData.carYear" 
+          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+          ng-change="saveFormState('car', carForm.$valid)"
+          required>
     <div ng-show="carForm.$submitted || carForm.carYear.$touched">
       <div ng-show="carForm.carYear.$error.required">Required.</div>
     </div>

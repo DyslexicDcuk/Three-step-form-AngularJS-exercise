@@ -8,6 +8,14 @@
  */
 angular.module('exerciseApp')
   .factory('Storage', function() {
+    
+    var stateValidity = {};
+    var lastInvalidStep = function() {
+      if (!stateValidity.personal) return 'registration.personal';
+      else if (!stateValidity.car) return 'registration.car';
+      else return 'registration.payment';
+    };
+
     return {
       users: {
         get: function() {
@@ -20,19 +28,36 @@ angular.module('exerciseApp')
           return;
         }
       },
- 
-      cache: {
+      
+      formState: {
         get: function() {
-          return JSON.parse(window.localStorage.getItem('userCache'));
+          stateValidity = JSON.parse(window.localStorage.getItem('stateValidity')) || 
+          {
+            'personal': false,
+            'car': false,
+            'payment': false
+          };
+
+          return JSON.parse(window.localStorage.getItem('userCache')) || {
+            'lastInvalidStep': 'registration.personal'
+          };
         },
-        set: function(formData) {
+        set: function(formData, formName, isValid) {
+          stateValidity[formName] = isValid;
+          formData.lastInvalidStep = lastInvalidStep();
+          window.localStorage.setItem('stateValidity', JSON.stringify(stateValidity));
           window.localStorage.setItem('userCache', JSON.stringify(formData));
           return;
         },
         delete: function() {
+          window.localStorage.removeItem('stateValidity');
           window.localStorage.removeItem('userCache');
           return;
         }
+      },
+
+      getStateValidity: function() {
+        return stateValidity;
       }
     };
   });

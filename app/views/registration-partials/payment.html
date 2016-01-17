@@ -1,26 +1,29 @@
 <h1>Payment</h1>
 
 <section ng-form="paymentForm">
-<div>
-  <label>Credit card number</label>
-  <input type="text" name="cardNumber" 
-      ng-model="formData.cardNumber" 
-      ng-model-options="{ updateOn: 'blur' }" 
-      required>
-  <div ng-show="paymentForm.$submitted || paymentForm.cardNumber.$touched">
-    <div ng-show="paymentForm.cardNumber.$error.required">Required.</div>
+  <div>
+    <label>Credit card number</label>
+    <input type="text" name="cardNumber" 
+        ng-model="formData.cardNumber" 
+        ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+        ng-change="saveFormState('payment', paymentForm.$valid)" 
+        required>
+    <div ng-show="paymentForm.$submitted || paymentForm.cardNumber.$touched">
+      <div ng-show="paymentForm.cardNumber.$error.required">Required.</div>
+    </div>
   </div>
-</div>
-<div>
-  <label>Expiration date</label>
-  <input type="text" name="cardExpiration" 
-      ng-model="formData.cardExpiration" 
-      ng-model-options="{ updateOn: 'blur' }" 
-      required>
-  <div ng-show="paymentForm.$submitted || paymentForm.cardExpiration.$touched">
-    <div ng-show="paymentForm.cardExpiration.$error.required">Required.</div>
+
+  <div>
+    <label>Expiration date</label>
+    <input type="text" name="cardExpiration" 
+        ng-model="formData.cardExpiration" 
+        ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+        ng-change="saveFormState('payment', paymentForm.$valid)" 
+        required>
+    <div ng-show="paymentForm.$submitted || paymentForm.cardExpiration.$touched">
+      <div ng-show="paymentForm.cardExpiration.$error.required">Required.</div>
+    </div>
   </div>
-</div>
 
   <div>
     <button ng-click="paymentForm.$setSubmitted(); nextStep(paymentForm.$valid, 'payment')">Submit</button>
