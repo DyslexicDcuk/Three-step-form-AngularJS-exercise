@@ -1,12 +1,12 @@
 <section ng-form="carForm">
   <div class="input-group">
     <label>Make</label>
-    <input type="text" 
-          name="carMake"
-          ng-model="formData.carMake" 
-          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
-          ng-change="saveFormState('car', carForm.$valid)"
-          required>
+    <select name="carMake"
+          ng-model="formData.carMake"
+          ng-model-options="{updateOn:'default blur',debounce:{'default':0,'blur':0}}" 
+          ng-change="saveFormState('car', carForm.$valid); onCarMakeChange();"
+          ng-options="item as item.title for item in carMakeOptions track by item.value"
+          required></select>
     <div class="validation-alert" ng-show="carForm.$submitted || carForm.carMake.$touched">
       <div ng-show="carForm.carMake.$error.required">Required.</div>
     </div>
@@ -14,12 +14,12 @@
 
   <div class="input-group">
     <label>Model</label>
-    <input type="text" 
-          name="carModel" 
+    <select name="carModel"
           ng-model="formData.carModel"
-          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
-          ng-change="saveFormState('car', carForm.$valid)" 
-          required>
+          ng-model-options="{updateOn:'default blur',debounce:{'default':0,'blur':0}}" 
+          ng-change="saveFormState('car', carForm.$valid)"
+          ng-options="item as item.title for item in carModelOptions track by item.value"
+          required></select>
     <div class="validation-alert" ng-show="carForm.$submitted || carForm.carModel.$touched">
       <div ng-show="carForm.carModel.$error.required">Required.</div>
     </div>
@@ -27,11 +27,12 @@
 
   <div class="input-group">
     <label>Year</label>
-    <input type="number" 
+    <input type="text" 
           name="carYear" 
           ng-model="formData.carYear" 
-          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
           ng-change="saveFormState('car', carForm.$valid)"
+          ui-mask="9999"
           required>
     <div class="validation-alert" ng-show="carForm.$submitted || carForm.carYear.$touched">
       <div ng-show="carForm.carYear.$error.required">Required.</div>

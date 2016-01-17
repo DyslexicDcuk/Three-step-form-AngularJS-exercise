@@ -8,10 +8,6 @@ html, body {
   background: #cccccc;
 }
 
-h1 {
-	font-family: 'Abel', sans-serif;
-}
-
 @import '_form-styles.scss';
 @import '_form-animation.scss';
 @import '_form-validation.scss';

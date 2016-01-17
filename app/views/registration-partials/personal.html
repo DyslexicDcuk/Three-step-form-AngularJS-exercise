@@ -32,6 +32,7 @@
           ng-model="formData.email" 
           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
           ng-change="saveFormState('personal', personalForm.$valid)"
+          
           required>
     <div class="validation-alert" ng-show="personalForm.$submitted || personalForm.userEmail.$touched">
       <span ng-show="personalForm.userEmail.$error.required">Tell us your email.</span>

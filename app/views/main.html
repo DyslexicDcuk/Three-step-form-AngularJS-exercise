@@ -16,7 +16,7 @@
         <td ng-bind="user.firstName"></td>
         <td ng-bind="user.lastName"></td>
         <td ng-bind="user.email"></td>
-        <td>{{user.carMake}} {{user.carModel}}</td>
+        <td>{{user.carMake.title}} - {{user.carModel.title}}</td>
         <td ng-bind="user.carYear"></td>
       </tr>
       <tr ng-show="!users.length">

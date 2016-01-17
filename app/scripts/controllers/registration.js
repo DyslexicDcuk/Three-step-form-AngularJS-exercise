@@ -7,10 +7,13 @@
  * Controller of the exerciseApp
  */
 angular.module('exerciseApp')
-  .controller('RegistrationCtrl', ['$scope', '$state', 'Storage', function($scope, $state, Storage) {
+  .controller('RegistrationCtrl', ['$scope', '$state', 'Storage', 'CarDB', 
+    function($scope, $state, Storage, CarDB) {
 
     $scope.formData = Storage.formState.get();
     $state.go($scope.formData.lastInvalidStep);
+
+    $scope.carMakeOptions = CarDB.getMake();
 
     $scope.saveFormState = function(formName, isValid) {
       Storage.formState.set($scope.formData, formName, isValid);
@@ -27,7 +30,7 @@ angular.module('exerciseApp')
           Storage.users.add($scope.formData);
           Storage.formState.delete();
           $scope.formData = {};
-          $state.go('registration.thanks');
+          $state.go('thanks');
         }
       }
     };
@@ -35,5 +38,10 @@ angular.module('exerciseApp')
     $scope.checkValidity = function(stateName) {
       return Storage.getStateValidity(stateName);
     };
+
+    $scope.onCarMakeChange = function() {
+      $scope.carModelOptions = CarDB.getModels($scope.formData.carMake.value);
+    };
+    if(typeof $scope.formData.carMake !== 'undefined') $scope.onCarMakeChange();
 
   }]);
