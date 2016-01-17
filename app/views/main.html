@@ -1,23 +1,27 @@
-<h1>List of registered users</h1>
+<section class="container">
+  <h1>List of registered users</h1>
 
-<table>
-  <thead>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th>Car</th>
-    <th>Year</th>
-  </thead>
-  <tbody>
-    <tr ng-repeat="user in users">
-      <td ng-bind="user.firstName"></td>
-      <td ng-bind="user.lastName"></td>
-      <td ng-bind="user.email"></td>
-      <td>{{user.carMake}} {{user.carModel}}</td>
-      <td ng-bind="user.carYear"></td>
-    </tr>
-    <tr ng-show="!users.length">
-      <td colspan="5">There are no users registered yet. :'(</td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <th></th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Car</th>
+      <th>Year</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td>#{{$index + 1}}</td>
+        <td ng-bind="user.firstName"></td>
+        <td ng-bind="user.lastName"></td>
+        <td ng-bind="user.email"></td>
+        <td>{{user.carMake}} {{user.carModel}}</td>
+        <td ng-bind="user.carYear"></td>
+      </tr>
+      <tr ng-show="!users.length">
+        <td colspan="5">There are no users registered yet. :'(</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

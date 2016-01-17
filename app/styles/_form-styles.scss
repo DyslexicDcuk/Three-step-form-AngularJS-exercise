@@ -1,0 +1,121 @@
+.form-steps {
+  width: 570px;
+  margin: 0px auto;
+  padding: 0px;
+  list-style: none;
+  margin: 20px auto 0px auto;
+  height: 68px;
+  font-family: 'Aldo', sans-serif;
+  
+  li {
+    display: inline-block;
+    margin: 0px;
+    float: left;
+  
+    button {
+      display: block;
+      width: 190px;
+      height: 68px;
+      background: #ddd;
+      position: relative;
+      border: none;
+      text-align: left;
+      font-size: 16px;
+      outline: none;
+      
+      .no {
+        position:absolute;
+        top: 11px;
+        left: 18px;
+        display: inline-block;
+        height: 46px;
+        width: 46px;
+        background: #aaa;
+        color: #444;
+        border-radius: 46px;
+        text-align: center;
+        line-height: 46px;
+        font-size: 18px;
+      }
+
+      .text {
+        display: inline-block;
+        position:absolute;
+        top: 18px;
+        left: 78px;
+        color: #666;
+      }
+
+      &.active {
+        background: #fff;
+
+        .no {
+          background: #3F2850;
+          color: #fff;
+        }
+
+        .text {
+          color: #444;
+        }
+      }
+
+      &:disabled {
+        .no {
+          background: #d0d0d0;
+          color: #bbb;
+        }
+
+        .text {
+          color: #bbb;
+        }
+      }
+    }
+  }
+}
+
+.registration-form {
+  width: 570px;
+  background: #fff;
+  margin: 0px auto;
+  .input-group {
+    padding: 16px 60px 16px 60px;
+    &:first-child {
+      padding-top: 46px;
+    }
+    label {
+      display: block;
+      color: #444;
+    }
+    input {
+      line-height: 40px;
+      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+      width: calc(100% - 40px);
+      border: 0px;
+      background: #ddd;
+    }
+    .validation-alert {
+      float: left;
+      color: #f00;
+    }
+  }
+  .next-step {
+    padding: 16px 60px 36px 60px;
+    text-align: right;
+    button {
+      border: none;
+      width: 120px;
+      height: 40px;
+      background: #3f2850;
+      color: #fff;
+      &:hover {
+        background: #5B3B73;
+      }
+
+      &:disabled {
+        background: #aaa;
+      }
+    }
+  }
+}

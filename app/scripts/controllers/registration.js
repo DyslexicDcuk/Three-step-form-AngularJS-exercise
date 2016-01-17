@@ -32,4 +32,8 @@ angular.module('exerciseApp')
       }
     };
 
+    $scope.checkValidity = function(stateName) {
+      return Storage.getStateValidity(stateName);
+    };
+
   }]);

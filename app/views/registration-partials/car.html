@@ -1,7 +1,5 @@
-<h1>Car information</h1>
-
 <section ng-form="carForm">
-  <div>
+  <div class="input-group">
     <label>Make</label>
     <input type="text" 
           name="carMake"
@@ -9,12 +7,12 @@
           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
           ng-change="saveFormState('car', carForm.$valid)"
           required>
-    <div ng-show="carForm.$submitted || carForm.carMake.$touched">
+    <div class="validation-alert" ng-show="carForm.$submitted || carForm.carMake.$touched">
       <div ng-show="carForm.carMake.$error.required">Required.</div>
     </div>
   </div>
 
-  <div>
+  <div class="input-group">
     <label>Model</label>
     <input type="text" 
           name="carModel" 
@@ -22,25 +20,25 @@
           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
           ng-change="saveFormState('car', carForm.$valid)" 
           required>
-    <div ng-show="carForm.$submitted || carForm.carModel.$touched">
+    <div class="validation-alert" ng-show="carForm.$submitted || carForm.carModel.$touched">
       <div ng-show="carForm.carModel.$error.required">Required.</div>
     </div>
   </div>
 
-  <div>
+  <div class="input-group">
     <label>Year</label>
-    <input type="text" 
+    <input type="number" 
           name="carYear" 
           ng-model="formData.carYear" 
           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
           ng-change="saveFormState('car', carForm.$valid)"
           required>
-    <div ng-show="carForm.$submitted || carForm.carYear.$touched">
+    <div class="validation-alert" ng-show="carForm.$submitted || carForm.carYear.$touched">
       <div ng-show="carForm.carYear.$error.required">Required.</div>
     </div>
   </div>
 
-  <div>
-    <button ng-click="carForm.$setSubmitted(); nextStep(carForm.$valid, 'car')">Next</button>
+  <div class="next-step">
+    <button ng-click="carForm.$setSubmitted(); nextStep(carForm.$valid, 'car')" ng-disabled="carForm.$invalid">Next</button>
   </div>
 </section>

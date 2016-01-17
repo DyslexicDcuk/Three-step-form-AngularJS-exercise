@@ -1,0 +1,42 @@
+/* Navigation */
+
+.fixed-nav-bar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 50px;
+  background: #3f2850;
+  border-bottom: 3px solid #5B3B73;
+  z-index: 1000;
+
+  ul {
+    padding: 0px;
+    list-style: none;
+    margin: 0px auto;
+    width: 194px;
+    
+
+    li {
+      display: inline-block;
+      border-left: 1px solid #835F9E;
+      margin-top: 16px;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        line-height: 18px;
+        padding: 0px 16px 0px 16px;
+
+        &:hover {
+          color: #d8cedf;
+        }
+      }
+    }
+  }
+}

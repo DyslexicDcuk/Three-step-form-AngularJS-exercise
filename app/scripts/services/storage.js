@@ -56,7 +56,10 @@ angular.module('exerciseApp')
         }
       },
 
-      getStateValidity: function() {
+      getStateValidity: function(stateName) {
+        if(stateName === 'car') return !stateValidity.personal;
+        else if(stateName === 'payment') return !(stateValidity.personal && stateValidity.car);
+        else return false;
         return stateValidity;
       }
     };

@@ -13,6 +13,7 @@ angular
     'ngCookies',
     'ngResource',
     'ui.router',
+    'ui.mask',
     'ngSanitize',
     'ngTouch'
   ])

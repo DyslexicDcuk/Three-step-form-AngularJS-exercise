@@ -12,6 +12,7 @@
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
+  <link href='https://fonts.googleapis.com/css?family=Abel|Ubuntu:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
@@ -21,13 +22,17 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <nav>
-    <a ui-sref="main">Main</a>
-    <a ui-sref="registration">Registration</a>
+  <nav class="fixed-nav-bar">
+    <div class="container">
+      <ul>
+        <li><a ui-sref="main">Main</a></li>
+        <li><a ui-sref="registration.personal">Registration</a></li>
+      </ul>
+    </div>
   </nav>
 
   <section class="content">
-    <div ui-view></div>
+    <div class="container" ui-view></div>
   </section>
 
   <!-- build:js(.) scripts/vendor.js -->
@@ -39,6 +44,7 @@
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/angular-touch/angular-touch.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-ui-mask/dist/mask.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
