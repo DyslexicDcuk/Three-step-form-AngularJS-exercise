@@ -85,6 +85,12 @@
       background: #f7cbcb;}
     }
 
+    &.has-warning {    
+      input,
+      select {
+      background: #F7E0BC;}
+    }
+
     &.is-disabled {
       label {
         color: #bbb;
@@ -127,6 +133,11 @@
     .validation-alert {
       float: left;
       color: #f00;
+    }
+
+    .validation-warning {
+      float: left;
+      color: #E8A300;
     }
   }
 

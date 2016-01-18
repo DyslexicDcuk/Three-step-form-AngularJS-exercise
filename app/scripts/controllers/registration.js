@@ -35,6 +35,8 @@ angular.module('exerciseApp')
       }
     };
 
+    $scope.asdf = function() {console.log('asdf');};
+
     $scope.checkValidity = function(stateName) {
       return Storage.getStateValidity(stateName);
     };

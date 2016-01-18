@@ -1,25 +1,35 @@
-<section ng-form="paymentForm">
-  <div class="input-group" ng-class="{'has-error': paymentForm.cardNumber.$touched && paymentForm.cardNumber.$error.required}">
+<section ng-form="paymentForm" ng-click="console.log('asdf')">
+  <div class="input-group" ng-class="{'has-error': paymentForm.cardNumber.$touched && paymentForm.cardNumber.$error.required,
+                                      'has-warning': paymentForm.cardNumber.$dirty && formData.cardNumber.length !== 16 && !paymentForm.cardNumber.$error.required }">
     <label>Credit card number</label>
     <input type="text" name="cardNumber" 
         ng-model="formData.cardNumber" 
         ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
         ng-change="saveFormState('payment', paymentForm.$valid)" 
         ui-mask="9999-9999-9999-9999"
+        ui-options="{clearOnBlur:false}"
         required>
+    <div class="validation-warning" ng-show="paymentForm.cardNumber.$dirty && formData.cardNumber.length !== 16 && !paymentForm.cardNumber.$error.required">
+      <div ng-show="true">Please fill in the complete card number.</div>
+    </div>
     <div class="validation-alert" ng-show="paymentForm.$submitted || paymentForm.cardNumber.$touched">
-      <div ng-show="paymentForm.cardNumber.$error.required">Required.</div>
+      <div ng-show="paymentForm.cardNumber.$error.required || paymentForm.cardNumber.$error.pattern">Required.</div>
     </div>
   </div>
 
-  <div class="input-group" ng-class="{'has-error': paymentForm.cardExpiration.$touched && paymentForm.cardExpiration.$error.required}">
+  <div class="input-group" ng-class="{'has-error': paymentForm.cardExpiration.$touched && paymentForm.cardExpiration.$error.required,
+                                      'has-warning': paymentForm.cardExpiration.$dirty && formData.cardExpiration.length !== 4 && !paymentForm.cardExpiration.$error.required}">
     <label>Expiration date</label>
     <input type="text" name="cardExpiration" 
         ng-model="formData.cardExpiration" 
         ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
         ng-change="saveFormState('payment', paymentForm.$valid)"
         ui-mask="99/99"
+        ui-options="{clearOnBlur:false}"
         required>
+    <div class="validation-warning" ng-show="paymentForm.cardExpiration.$dirty && formData.cardExpiration.length !== 4 && !paymentForm.cardExpiration.$error.required">
+      <div ng-show="true">Please fill in the complete card expiration date. </div>
+    </div>
     <div class="validation-alert" ng-show="paymentForm.$submitted || paymentForm.cardExpiration.$touched">
       <div ng-show="paymentForm.cardExpiration.$error.required">Required.</div>
     </div>

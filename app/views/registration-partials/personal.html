@@ -5,7 +5,7 @@
           name="fistName" 
           ng-model="formData.firstName"
           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
-          ng-change="saveFormState('personal', personalForm.$valid)"
+          ng-change="saveFormState('personal', personalForm.$valid);"
           required>
     <div class="validation-alert" ng-show="personalForm.$submitted || personalForm.fistName.$touched">
       <div ng-show="personalForm.fistName.$error.required">Required.</div>
@@ -15,29 +15,29 @@
   <div class="input-group" ng-class="{'has-error': personalForm.lastName.$touched && personalForm.lastName.$error.required}">
     <label>Last name</label>
     <input type="text" 
-          name="userLastName" 
+          name="lastName" 
           ng-model="formData.lastName" 
           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
           ng-change="saveFormState('personal', personalForm.$valid)"
           required>
-    <div class="validation-alert" ng-show="personalForm.$submitted || personalForm.userLastName.$touched">
-      <div ng-show="personalForm.userLastName.$error.required">Required.</div>
+    <div class="validation-alert" ng-show="personalForm.$submitted || personalForm.lastName.$touched">
+      <div ng-show="personalForm.lastName.$error.required">Required.</div>
     </div>
   </div>
   
-  <div class="input-group" ng-class="{'has-error': personalForm.userEmail.$touched && 
-                                      (personalForm.userEmail.$error.required || personalForm.userEmail.$error.email)}">
+  <div class="input-group" ng-class="{'has-error': personalForm.email.$touched && 
+                                      (personalForm.email.$error.required || personalForm.email.$error.email)}">
     <label>E-mail</label>
     <input type="email" 
-          name="userEmail" 
+          name="email" 
           ng-model="formData.email" 
           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
           ng-change="saveFormState('personal', personalForm.$valid)"
           
           required>
-    <div class="validation-alert" ng-show="personalForm.$submitted || personalForm.userEmail.$touched">
-      <span ng-show="personalForm.userEmail.$error.required">Tell us your email.</span>
-      <span ng-show="personalForm.userEmail.$error.email">This is not a valid email.</span>
+    <div class="validation-alert" ng-show="personalForm.$submitted || personalForm.email.$touched">
+      <span ng-show="personalForm.email.$error.required">Tell us your email.</span>
+      <span ng-show="personalForm.email.$error.email">This is not a valid email.</span>
     </div>
   </div>
 
