@@ -1,12 +1,20 @@
-# exercise
+# Three step AngularJS form exercise
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+Simple three step AngularJS form that should include form validation, saving data to localStorage and unit tests. 
 
-## Build & development
+## Running
 
-Run `grunt` for building and `grunt serve` for preview.
+For running this project:
+1. install [nodejs](https://nodejs.org/en/)
+2. get grunt-cli and bower `npm install --g bower grunt-cli`
+3. get karma `npm install karma-jasmine`
+4. if(usingWindows) also get [ruby](http://rubyinstaller.org/) and check the 'Add to PATH' checkbox while installing
+5. get sass `gem install sass`
+6. get compass `gem install compass`
+7. if you haven't, now you should pull the repository to your machine
+8. locate your project directory and run `npm install` and `bower install`
+9. last step should be `grunt serve` and you're running it
 
 ## Testing
 
-Running `grunt test` will run the unit tests with karma.
+There are only simple unit tests for RegistrationCtrl, but `grunt test` will run them with karma.
