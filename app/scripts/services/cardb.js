@@ -18,7 +18,7 @@ angular.module('exerciseApp')
 
     var models = [{'value':'ALFA', 'models':[{'value':'ALFA164','title':'164'},{'value':'ALFA8C','title':'8C Competizione'}]},
                   {'value':'HONDA', 'models':[{'value':'HONDAACCORD','title':'Accord'},{'value':'HONDACIVIC','title':'Civic'},{'value':'HONDACRZ','title':'CR-Z'}]},
-                  {'value':'CITROEN', 'models':[{'value':'CITROENC2','title':'C2'},{'value':'CITROENC4','title':'C4'},{'value':'CITROENC5','title':'C5'}]}];
+                  {'value':'CITROEN', 'models':[{'value':'CITROENC2','title':'C2'},{'value':'CITROENC3','title':'C3'},{'value':'CITROENC4','title':'C4'},{'value':'CITROENC5','title':'C5'}]}];
     
     return {
       getMake: function () {
