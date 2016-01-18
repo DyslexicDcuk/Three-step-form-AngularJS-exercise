@@ -11,7 +11,7 @@ For running this project:
  4. if(usingWindows) also get [ruby](http://rubyinstaller.org/) and check the 'Add to PATH' checkbox while installing
  5. get sass `gem install sass`
  6. get compass `gem install compass`
- 7. if you haven't, now you should pull the repository to your machine
+ 7. if you haven't already, now you should pull the repository to your machine
  8. locate your project directory and run `npm install` and `bower install`
  9. last step should be `grunt serve` and you're running it
 
