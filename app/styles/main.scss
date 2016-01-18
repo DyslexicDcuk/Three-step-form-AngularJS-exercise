@@ -5,17 +5,16 @@ body {
   padding: 0px;
   margin: 0px;
   font-family: 'Ubuntu', sans-serif;
-  background: #cccccc;
+  background: #bdbdbd;
 }
 
 @import '_form-styles.scss';
 @import '_form-animation.scss';
-@import '_form-validation.scss';
 @import '_navigation.scss';
 @import '_table-styles.scss';
 
 .content {
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 .container {

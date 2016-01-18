@@ -1,9 +1,9 @@
 <section ng-form="paymentForm">
-  <div class="input-group">
+  <div class="input-group" ng-class="{'has-error': paymentForm.cardNumber.$touched && paymentForm.cardNumber.$error.required}">
     <label>Credit card number</label>
     <input type="text" name="cardNumber" 
         ng-model="formData.cardNumber" 
-        ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+        ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
         ng-change="saveFormState('payment', paymentForm.$valid)" 
         ui-mask="9999-9999-9999-9999"
         required>
@@ -12,11 +12,11 @@
     </div>
   </div>
 
-  <div class="input-group">
+  <div class="input-group" ng-class="{'has-error': paymentForm.cardExpiration.$touched && paymentForm.cardExpiration.$error.required}">
     <label>Expiration date</label>
     <input type="text" name="cardExpiration" 
         ng-model="formData.cardExpiration" 
-        ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+        ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
         ng-change="saveFormState('payment', paymentForm.$valid)"
         ui-mask="99/99"
         required>

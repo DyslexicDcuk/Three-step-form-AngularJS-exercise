@@ -1,10 +1,10 @@
 <section ng-form="personalForm">
-  <div class="input-group">
+  <div class="input-group" ng-class="{'has-error': personalForm.fistName.$touched && personalForm.fistName.$error.required}">
     <label>First name</label>
     <input type="text" 
           name="fistName" 
           ng-model="formData.firstName"
-          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
           ng-change="saveFormState('personal', personalForm.$valid)"
           required>
     <div class="validation-alert" ng-show="personalForm.$submitted || personalForm.fistName.$touched">
@@ -12,12 +12,12 @@
     </div>
   </div>
 
-  <div class="input-group">
+  <div class="input-group" ng-class="{'has-error': personalForm.lastName.$touched && personalForm.lastName.$error.required}">
     <label>Last name</label>
     <input type="text" 
           name="userLastName" 
           ng-model="formData.lastName" 
-          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
           ng-change="saveFormState('personal', personalForm.$valid)"
           required>
     <div class="validation-alert" ng-show="personalForm.$submitted || personalForm.userLastName.$touched">
@@ -25,12 +25,13 @@
     </div>
   </div>
   
-  <div class="input-group">
+  <div class="input-group" ng-class="{'has-error': personalForm.userEmail.$touched && 
+                                      (personalForm.userEmail.$error.required || personalForm.userEmail.$error.email)}">
     <label>E-mail</label>
     <input type="email" 
           name="userEmail" 
           ng-model="formData.email" 
-          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }" 
+          ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 0, 'blur': 0 } }" 
           ng-change="saveFormState('personal', personalForm.$valid)"
           
           required>

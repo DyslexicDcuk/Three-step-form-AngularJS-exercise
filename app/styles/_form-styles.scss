@@ -79,6 +79,23 @@
   .input-group {
     padding: 16px 60px 16px 60px;
 
+    &.has-error {    
+      input,
+      select {
+      background: #f7cbcb;}
+    }
+
+    &.is-disabled {
+      label {
+        color: #bbb;
+      }
+
+      input, select {
+        background: #eee;
+        cursor: not-allowed;
+      }
+    }
+
     &:first-child {
       padding-top: 46px;
     }

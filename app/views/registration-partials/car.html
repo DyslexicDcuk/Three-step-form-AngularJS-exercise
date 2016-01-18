@@ -1,5 +1,5 @@
 <section ng-form="carForm">
-  <div class="input-group">
+  <div class="input-group" ng-class="{'has-error': carForm.carMake.$touched && carForm.carMake.$error.required}">
     <label>Make</label>
     <select name="carMake"
           ng-model="formData.carMake"
@@ -12,9 +12,10 @@
     </div>
   </div>
 
-  <div class="input-group">
+  <div class="input-group" ng-class="{'has-error': carForm.carModel.$touched && carForm.carModel.$error.required, 'is-disabled': formData.carMake == null}">
     <label>Model</label>
     <select name="carModel"
+          ng-disabled="formData.carMake == null"
           ng-model="formData.carModel"
           ng-model-options="{updateOn:'default blur',debounce:{'default':0,'blur':0}}" 
           ng-change="saveFormState('car', carForm.$valid)"
@@ -25,7 +26,7 @@
     </div>
   </div>
 
-  <div class="input-group">
+  <div class="input-group" ng-class="{'has-error': carForm.carYear.$touched && carForm.carYear.$error.required}">
     <label>Year</label>
     <input type="text" 
           name="carYear" 
