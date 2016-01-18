@@ -5,15 +5,15 @@ Simple three step AngularJS form that should include form validation, saving dat
 ## Running
 
 For running this project:
-1. install [nodejs](https://nodejs.org/en/)
-2. get grunt-cli and bower `npm install --g bower grunt-cli`
-3. get karma `npm install karma-jasmine`
-4. if(usingWindows) also get [ruby](http://rubyinstaller.org/) and check the 'Add to PATH' checkbox while installing
-5. get sass `gem install sass`
-6. get compass `gem install compass`
-7. if you haven't, now you should pull the repository to your machine
-8. locate your project directory and run `npm install` and `bower install`
-9. last step should be `grunt serve` and you're running it
+ 1. install [nodejs](https://nodejs.org/en/)
+ 2. get grunt-cli and bower `npm install --g bower grunt-cli`
+ 3. get karma `npm install karma-jasmine`
+ 4. if(usingWindows) also get [ruby](http://rubyinstaller.org/) and check the 'Add to PATH' checkbox while installing
+ 5. get sass `gem install sass`
+ 6. get compass `gem install compass`
+ 7. if you haven't, now you should pull the repository to your machine
+ 8. locate your project directory and run `npm install` and `bower install`
+ 9. last step should be `grunt serve` and you're running it
 
 ## Testing
 
