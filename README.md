@@ -18,3 +18,12 @@ For running this project:
 ## Testing
 
 There are only simple unit tests for RegistrationCtrl, but `grunt test` will run them with karma.
+
+## TO-DO
+
+ - add some kind of year datepicker on Year input
+ - detect card type/format depending on the card number
+ - prevent writing invalid dates in expiration date (some kind of picker)
+ - remove angular-ui-mask from project
+ - finish tests
+ - branch off and rewrite in E6/7
